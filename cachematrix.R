@@ -1,6 +1,5 @@
 ## This function creates a special "matrix" object that can cache its inverse.
-
-## Write a short comment describing this function
+## based on example cacheMeanVector
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
     set <- function(y) {
@@ -33,3 +32,15 @@ cacheSolve <- function(x, ...) {
     x$setinv(inv)
     inv
 }
+
+## test set from https://class.coursera.org/rprog-003/forum/thread?thread_id=511
+## 
+# source("cachematrix.R")     # source the functions
+# a <- makeCacheMatrix()      # initialize
+# a                           # shows that a is now a list of functions
+# class(a)                    # shows that a is a list
+# class(a$set)                # shows that the elements of the list are functions
+# a$set(matrix(1:4,2,2))      # set the matrix
+# a$get                       # get the matrix 
+# cacheSolve(a)               # calculate the inverse 
+# cacheSolve(a)               # when called back, use the cached inverse 
